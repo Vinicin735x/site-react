@@ -1,5 +1,5 @@
 import React from "react";
-import carrousel from "assets/img/carrousel.png";
+import carrousel from "assets/img/image 1.png";
 import * as S from "./styles";
 import { CardComponent } from "components";
 import dados from "services/dados";

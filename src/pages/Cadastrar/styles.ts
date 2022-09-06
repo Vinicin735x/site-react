@@ -9,19 +9,19 @@ export const Section = styled.section`
   flex-direction: column;
   margin-top: 2rem;
   h1 {
-    color: ${colors.primary};
+    color: ${colors.secondary};
     font-weight: 500;
     margin-bottom: 2rem;
     font-size: 2rem;
   }
   form {
-    background-color: ${colors.thirdLight};
-    border: 0.2rem solid ${colors.third};
+    background-color: ${colors.primary};
+    border: 0.2rem solid ${colors.secondary};
     border-radius: 1rem;
     padding: 1.5rem;
     div {
       background-color: ${colors.white};
-      border: 0.15rem solid ${colors.third};
+      border: 0.15rem solid ${colors.white};
       border-radius: 0.6rem;
       display: flex;
       margin: 0.5rem 0;
@@ -29,7 +29,7 @@ export const Section = styled.section`
         height: 3rem;
         width: 3rem;
         padding: 0.3rem;
-        color: ${colors.third};
+        color: ${colors.secondary};
       }
       input {
         width: 100%;
@@ -42,7 +42,7 @@ export const Section = styled.section`
       margin-top: 1rem;
       a {
         text-decoration: none;
-        color: ${colors.black};
+        color: ${colors.secondary};
         font-weight: bold;
       }
     }
