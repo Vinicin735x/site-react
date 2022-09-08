@@ -1,9 +1,9 @@
 const dados = [
   {
     id: 1,
-    nome: "Dragon Ball",
+    nome: "One Piece",
     data: "27/04/2022",
-    autor: "Akira Toreama",
+    autor: "Eichio Oda",
   },
   
 ]
