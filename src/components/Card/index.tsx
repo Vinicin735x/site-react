@@ -13,13 +13,9 @@ const Card = ({ dados }: ICard) => {
               {dados.nome} - {dados.data}
             </>
           </h4>
-          <h3>Título: {dados.titulo}</h3>
-          <h3>Mensagem: {dados.mensagem}</h3>
-          <div>
-            {dados.topico.map((topic) => (
-              <span key={topic.id}>{topic.item}</span>
-            ))}
-          </div>
+          <h3>Animes: {dados.nome}</h3>
+          <h3>Data de Lançamento: {dados.data}</h3>
+          <h3>Autor: {dados.autor}</h3>
         </div>
       )}
     </S.Card>
