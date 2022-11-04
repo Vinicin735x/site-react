@@ -1,7 +1,7 @@
 import { IAnimeData, IAnimeForm } from "interfaces/anime.interface";
 import api from "services/api";
 
-class MessageData {
+class AnimeData {
   index() {
     return api.get<IAnimeData[]>('/messages')
   }
