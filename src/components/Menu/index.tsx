@@ -22,7 +22,9 @@ const Menu = () => {
           user ? (
             <ul>
               <li>
-
+                <Link to="/adm/anime">Mensagem</Link>
+                </li>
+                <li>
                 <button onClick={logout}>{user.name} <GrLogout /></button>
               </li>
             </ul>

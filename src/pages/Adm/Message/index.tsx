@@ -1,8 +1,8 @@
 import { useCallback, useEffect, useState } from "react";
 import { ButtonComponent } from "components";
-import * as S from "./styles";
-import { apiMessage } from "services/data";
-import { IMessageData } from "interfaces/message.interface";
+import * as S from "./style";
+import { apiAnime } from "services/data";
+import { IAnimeData } from "interfaces/anime.interface";
 import { LoadingComponent } from "components";
 import { FcAddDatabase } from "react-icons/fc";
 import { BsPencilSquare, BsTrash2 } from "react-icons/bs";
@@ -11,12 +11,12 @@ import { confirmAlert } from "react-confirm-alert";
 import { toast } from "react-toastify";
 
 const AdmMessage = () => {
-  const [messages, setMessages] = useState<IMessageData[]>();
+  const [messages, setMessages] = useState<IAnimeData[]>();
   const [isLoading, setIsLoading] = useState(true);
   const navigate = useNavigate();
 
   const fetchData = useCallback(async () => {
-    const response = await apiMessage.index();
+    const response = await apiAnime.index();
     setMessages(response.data);
     setIsLoading(false);
   }, []);
@@ -35,7 +35,7 @@ const AdmMessage = () => {
             label: "SIM",
             onClick: async () => {
               setIsLoading(true);
-              await apiMessage.destroy(id);
+              await apiAnime.destroy(id);
               toast.success("Mensagem removida com sucesso!");
               fetchData();
             },
@@ -82,8 +82,6 @@ const AdmMessage = () => {
                   messages.map((item) => (
                     <tr key={item.id}>
                       <td>{item.user?.name}</td>
-                      <td>{item.title}</td>
-                      <td>{item.message}</td>
                       <td>{item.messageTopic?.map((i) => `${i.name} `)}</td>
                       <td>
                         <ButtonComponent

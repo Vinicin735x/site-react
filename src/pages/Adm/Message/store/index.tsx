@@ -1,9 +1,9 @@
 import { FormEvent, useEffect, useState } from "react";
-import * as S from "./styles";
+import * as S from "./style";
 import { LoadingComponent, ButtonComponent } from "components";
 import { FcDatabase, FcUndo } from "react-icons/fc";
 import { Link, useNavigate, useParams } from "react-router-dom";
-import { apiMessage } from "services/data";
+import { apiAnime } from "services/data";
 import { toast } from "react-toastify";
 import { AxiosError } from "axios";
 import { IAnimeData } from "interfaces/anime.interface";
@@ -12,9 +12,7 @@ import { IErrorResponse } from "interfaces/user.interface";
 const MessageStore = () => {
   const [isLoading, setIsLoading] = useState(true);
   const navigate = useNavigate();
-  const [formData, setFormData] = useState<IMessageData>({
-    title: '',
-    message: '',
+  const [formData, setFormData] = useState<IAnimeData>({
   })
   const { id } = useParams<{ id: string }>();
 
@@ -23,10 +21,10 @@ const MessageStore = () => {
     try {
       console.log(Number(id))
       if (Number(id) > 0) {
-        await apiMessage.update(Number(id), formData);
+        await apiAnime.update(Number(id), formData);
         toast.success("Mensagem alterada com sucesso!");
       } else {
-        await apiMessage.store(formData);
+        await apiAnime.store(formData);
         toast.success("Mensagem cadastrada com sucesso!");
       }
       navigate('/adm/message')
@@ -49,7 +47,7 @@ const MessageStore = () => {
     if (Number(id) > 0) {
       const fetchData = async (id: number) => {
         try {
-          const response = await apiMessage.show(id);
+          const response = await apiAnime.show(id);
           setFormData(response.data);
         } catch (error) {
           console.log(error);
@@ -74,15 +72,11 @@ const MessageStore = () => {
               <div>
                 <label htmlFor="title">Título: </label>
                 <input type="text" id="title" placeholder="Escreva um título" required
-                  onChange={(e) => handleChange({ title: e.target.value })}
-                  value={formData?.title}
                 />
               </div>
               <div>
                 <label htmlFor="message">Mensagem: </label>
                 <textarea id="message" placeholder="Escreva uma mensagem" required
-                  onChange={(e) => handleChange({ message: e.target.value })}
-                  value={formData?.message}
                 />
               </div>
               <ButtonComponent bgColor="add" type="submit">
