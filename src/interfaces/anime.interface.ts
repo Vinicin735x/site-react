@@ -1,20 +1,14 @@
 export interface IAnimeData {
     id?: number
-    name?: string
-    created_at?: string
-    user?: {
-      name: string
-    }
-    messageTopic?: {
-      id: number
-      name: string
-    }[]
+    autor?: string
+    data_lancamento?: string
+    name: string
+    
   }
   
   export interface IAnimeForm {
     id?: number
-    title?: string
-    message?: string
-    created_at?: string
-    topic?: number[] | undefined
+    autor?:string
+    data_lancamento?:Date
+    name?: string
   }

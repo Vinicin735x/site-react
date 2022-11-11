@@ -10,9 +10,14 @@ import { IAnimeData } from "interfaces/anime.interface";
 import { IErrorResponse } from "interfaces/user.interface";
 
 const MessageStore = () => {
-  const [isLoading, setIsLoading] = useState(true);
-  const navigate = useNavigate();
-  const [formData, setFormData] = useState<IAnimeData>({
+  const MessageStore = () => {
+    const [isLoading, setIsLoading] = useState(true);
+    const navigate = useNavigate();
+    const [formData, setFormData] = useState<IAnimeData>({
+      autor: '',
+      data_lancamento: '',
+      name: '',
+    })
   })
   const { id } = useParams<{ id: string }>();
 
@@ -70,13 +75,17 @@ const MessageStore = () => {
                 <FcUndo /> Voltar
               </Link>
               <div>
-                <label htmlFor="title">Título: </label>
+              <label htmlFor="title">Título: </label>
                 <input type="text" id="title" placeholder="Escreva um título" required
+                  onChange={(e) => handleChange({ title: e.target.value })}
+                  value={formData?.title}
                 />
               </div>
               <div>
-                <label htmlFor="message">Mensagem: </label>
+              <label htmlFor="message">Mensagem: </label>
                 <textarea id="message" placeholder="Escreva uma mensagem" required
+                  onChange={(e) => handleChange({ message: e.target.value })}
+                  value={formData?.message}
                 />
               </div>
               <ButtonComponent bgColor="add" type="submit">
