@@ -2,13 +2,13 @@ export interface IAnimeData {
     id?: number
     autor?: string
     data_lancamento?: string
-    name: string
+    name?: string
     
   }
   
   export interface IAnimeForm {
     id?: number
     autor?:string
-    data_lancamento?:Date
+    data_lancamento?:string
     name?: string
   }

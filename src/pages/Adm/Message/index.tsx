@@ -81,8 +81,9 @@ const AdmMessage = () => {
                 {messages &&
                   messages.map((item) => (
                     <tr key={item.id}>
-                      <td>{item.user?.name}</td>
-                      <td>{item.messageTopic?.map((i) => `${i.name} `)}</td>
+                      <td>{item.autor}</td>
+                      <td>{item.data_lancamento}</td>
+                      <td>{item.name}</td>
                       <td>
                         <ButtonComponent
                           type="button"

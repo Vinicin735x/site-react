@@ -10,7 +10,6 @@ import { IAnimeData } from "interfaces/anime.interface";
 import { IErrorResponse } from "interfaces/user.interface";
 
 const MessageStore = () => {
-  const MessageStore = () => {
     const [isLoading, setIsLoading] = useState(true);
     const navigate = useNavigate();
     const [formData, setFormData] = useState<IAnimeData>({
@@ -18,7 +17,7 @@ const MessageStore = () => {
       data_lancamento: '',
       name: '',
     })
-  })
+  
   const { id } = useParams<{ id: string }>();
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
@@ -75,19 +74,24 @@ const MessageStore = () => {
                 <FcUndo /> Voltar
               </Link>
               <div>
-              <label htmlFor="title">Título: </label>
-                <input type="text" id="title" placeholder="Escreva um título" required
-                  onChange={(e) => handleChange({ title: e.target.value })}
-                  value={formData?.title}
+              <label htmlFor="autor">Autor: </label>
+                <input type="text" id="autor" placeholder="Escreva o nome do autor" required
+                  onChange={(e) => handleChange({ autor: e.target.value })}
+                  value={formData?.autor}
                 />
               </div>
               <div>
-              <label htmlFor="message">Mensagem: </label>
-                <textarea id="message" placeholder="Escreva uma mensagem" required
-                  onChange={(e) => handleChange({ message: e.target.value })}
-                  value={formData?.message}
+              <label htmlFor="data_lancamento">Data_lancamento: </label>
+                <textarea id="message" placeholder="Escreva a data de lançamento" required
+                  onChange={(e) => handleChange({ data_lancamento: e.target.value })}
+                  value={formData?.data_lancamento}
                 />
               </div>
+              <label htmlFor="name">Name: </label>
+                <textarea id="message" placeholder="Escreva o nome do anime" required
+                  onChange={(e) => handleChange({ name: e.target.value })}
+                  value={formData?.name}
+                />
               <ButtonComponent bgColor="add" type="submit">
                 Enviar <FcDatabase />
               </ButtonComponent>
